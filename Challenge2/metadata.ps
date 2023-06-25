@@ -1,0 +1,10 @@
+
+$metadataUri = "https://docs.microsoft.com/en-us/azure/?product=featured"
+$headers = @{
+    'Metadata' = 'true'
+}
+
+$metadataJson = Invoke-RestMethod -Uri $metadataUri -Headers $headers
+$metadataOutput = $metadataJson | ConvertTo-Json
+
+Write-Host $metadataOutput
